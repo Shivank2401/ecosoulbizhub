@@ -4,6 +4,16 @@ from streamlit_option_menu import option_menu
 import altair as alt
 import plotly.express as px
 
+
+# Main Header
+st.set_page_config(
+    page_title="Ecosoul Home",
+    page_icon="🌴",
+    layout="wide",
+    initial_sidebar_state="expanded")
+
+alt.themes.enable("dark")
+
 # Load data
 inventory_data = pd.read_excel("Inventory-Database.xlsx",  sheet_name="Inventory_S-D")
 inventory_data = inventory_data.loc[:, ['SKU', '3G', 'Updike', 'Walmart', 'Amazon-USA', 'Amazon-Canada', 'Amazon-UAE',
@@ -30,15 +40,6 @@ retail_overview = pd.read_csv("retail_po_sku_data.csv")
 
 website_customer = pd.read_excel("Sales_data.xlsx")
 
-
-# Main Header
-st.set_page_config(
-    page_title="Ecosoul Home",
-    page_icon="🌴",
-    layout="wide",
-    initial_sidebar_state="expanded")
-
-alt.themes.enable("dark")
 
 # Sidebar Navigation with Custom Buttons and Icons
 with st.sidebar:
