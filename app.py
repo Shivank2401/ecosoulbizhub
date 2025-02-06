@@ -1164,9 +1164,9 @@ elif main_page == "Zoho":
         zoho_pivot = zoho_pivot.drop(columns=['Total'], errors='ignore')
         
         # **Key Metrics Calculation**
-        total_banglore = zoho_pivot["Bangalore"].sum() if "Bangalore" in zoho_pivot.columns else 0
-        total_muzaf = zoho_pivot["Muzaffarnagar"].sum() if "Muzaffarnagar" in zoho_pivot.columns else 0
-        total_noida = zoho_pivot["Noida-63"].sum() if "Noida-63" in zoho_pivot.columns else 0    
+        total_banglore = zoho_pivot["Bangalore"].sum()
+        total_muzaf = zoho_pivot["Muzaffarnagar"].sum()
+        total_noida = zoho_pivot["Noida-63"].sum()
 
         # Display Key Metrics
         st.subheader("🧐 Key Metrics")
@@ -1229,11 +1229,6 @@ elif main_page == "Zoho":
         if "All" not in selected_combination_types:
             zoho_db = zoho_db[zoho_db['Combination_Type'].isin(selected_combination_types)]
 
-        # **Key Metrics Calculation**
-        total_banglore = zoho_pivot["Bangalore"].sum() if "Bangalore" in zoho_pivot.columns else 0
-        total_muzaf = zoho_pivot["Muzaffarnagar"].sum() if "Muzaffarnagar" in zoho_pivot.columns else 0
-        total_noida = zoho_pivot["Noida-63"].sum() if "Noida-63" in zoho_pivot.columns else 0
-
         # **Data Table for Raw Material as of Today**
         st.markdown("""
             <p style="background-color: #4CAF50; color: white; padding: 10px; border-radius: 50px; text-align: center; font-weight: bold;">
@@ -1251,7 +1246,6 @@ elif main_page == "Zoho":
             </p>
             """, unsafe_allow_html=True)
         st.dataframe(zoho_db, width=2500, height=500, use_container_width=True, hide_index=None)
-
 
     # __________________________________________________________________________ for Digital Marketing ____________________________________________________________________________________________
 
@@ -1352,6 +1346,7 @@ elif main_page == "Digital Marketing":
             col6.markdown(f"""<div style="text-align: center; font-weight: bold; background-color:#003049; padding: 5px; height: 100px; border-radius: 5px;">
                                 <span style="font-size: 16px;">Non-Returning Customers</span><br>
                                 <span style="color: white; font-size: 16px;">{non_return_customer:,.0f}</span></div>""", unsafe_allow_html=True)  
+                                
             st.markdown("") # Add space between Key Metrics and Charts
             st.markdown("")     
 
@@ -1442,7 +1437,7 @@ elif main_page == "Digital Marketing":
                     Sales by Region</p> """, unsafe_allow_html=True)
                 st.dataframe(figure8, use_container_width=True, hide_index = None)  # Display table
 
-    # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ India website email +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ India website email +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         elif st.session_state.page == 'India': 
             st.markdown("""
                 <div style="margin: 20px 0;"> <div class="banner">India Website Overview</div>
