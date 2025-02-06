@@ -5,31 +5,30 @@ import altair as alt
 import plotly.express as px
 
 # Load data
-inventory_data = pd.read_excel(
-    "C:/Users/rajpu/OneDrive - EcoSoul Home/Central Repository/inventory/IMS_new_Dashboard_files/Inventory-Database.xlsx",  sheet_name="Inventory_S-D")
+inventory_data = pd.read_excel("Inventory-Database.xlsx",  sheet_name="Inventory_S-D")
 inventory_data = inventory_data.loc[:, ['SKU', '3G', 'Updike', 'Walmart', 'Amazon-USA', 'Amazon-Canada', 'Amazon-UAE',
                                         'Amazon-UK', 'Amazon-Germany', 'Amazon-India', 'Easy Ecom', 'Flipkart']]
 
-container_data = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\Container_Data.xlsx", sheet_name='Container SKU')
+container_data = pd.read_excel("Container_Data.xlsx", sheet_name='Container SKU')
 container_data = container_data.loc[:, ['Container_No','Reference_No','SKU','Cases','Box/Cases','QTY in Box','Total price /box','Total Amount /SKU (Inclusive Commission)',
                                         'Dispatched Date from WH','Departure Date from Port','Arrival Date on Port','WH_Arrival_Month','Origin','Destination Port','US WH Name',
                                         'Main Delivery Date','Status','Reflecting in WH Inventory','Main_Container No.','Delivery Type','Location','Month_Year','Month_diff','Aging']]   
 
-amazon_shipment = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\All-Shipment_Amazon.xlsx")
+amazon_shipment = pd.read_excel("All-Shipment_Amazon.xlsx")
 
-zoho_db= pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\Zoho_as_of_Today.xlsx", sheet_name='Pivot_RM_Calculator')
-zoho_pivot = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\Zoho_as_of_Today.xlsx", sheet_name='zoho_pivot')
+zoho_db= pd.read_excel("Zoho_as_of_Today.xlsx", sheet_name='Pivot_RM_Calculator')
+zoho_pivot = pd.read_excel("Zoho_as_of_Today.xlsx", sheet_name='zoho_pivot')
 
-threeg_orders = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\USA-3G_WH.xlsx", sheet_name='3G-Orders')
-threeg_db = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\USA-3G_WH.xlsx", sheet_name='3G-Inventory')
-threeg_age = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\USA-3G_WH.xlsx", sheet_name='3G-Aging')
+threeg_orders = pd.read_excel("USA-3G_WH.xlsx", sheet_name='3G-Orders')
+threeg_db = pd.read_excel("USA-3G_WH.xlsx", sheet_name='3G-Inventory')
+threeg_age = pd.read_excel("USA-3G_WH.xlsx", sheet_name='3G-Aging')
 
-updike_db = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\USA-Updike_WH.xlsx", sheet_name='Updk-Inveto')
-updike_orders = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\inventory\IMS_new_Dashboard_files\USA-Updike_WH.xlsx", sheet_name='Updk-Outgoing')
+updike_db = pd.read_excel("USA-Updike_WH.xlsx", sheet_name='Updk-Inveto')
+updike_orders = pd.read_excel("USA-Updike_WH.xlsx", sheet_name='Updk-Outgoing')
 
-retail_overview = pd.read_csv(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\retail\Retail-Dashboard_Files\retail_po_sku_data.csv")
+retail_overview = pd.read_csv("retail_po_sku_data.csv")
 
-website_customer = pd.read_excel(r"C:\Users\rajpu\OneDrive - EcoSoul Home\Central Repository\Digital Marketing\dashboard_files\Sales_data.xlsx")
+website_customer = pd.read_excel("Sales_data.xlsx")
 
 
 # Main Header
