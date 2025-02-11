@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - EcosoulBiz
+name: Build and deploy Python app to Azure Web App - ecosoulbiz
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Create and start virtual environment
         run: |
@@ -68,14 +68,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6468DB3409C744C5825F12E21D66E8BE }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_50FD6B4E3C974FE785E6DC7202DC727C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_D318991551F54099847833339F289907 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13250894D05D41EC8A30FBFEEDFF3B3A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_939A01D83CF14061920D4F83824385EF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_03F078BE423147E19307393D11F68C92 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'EcosoulBiz'
+          app-name: 'ecosoulbiz'
           slot-name: 'Production'
           
